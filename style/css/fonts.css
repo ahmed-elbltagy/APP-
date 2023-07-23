@@ -1,0 +1,9 @@
+
+/* Main Font */
+@font-face {
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../../assets/fonts/main-font/Fira-Sans.woff2") format('woff2');
+}
