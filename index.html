@@ -6,24 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"    content="width=device-width, initial-scale=1.0">
 
-<!-- Favicon Imgs -->
-  <link rel="apple-touch-icon" sizes="57x57" href="assets/imgs/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/imgs/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/imgs/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/imgs/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/imgsassets/imgs/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="assets/imgs/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="assets/imgs/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/imgs/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="assets/imgs/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/imgs/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon-16x16.png">
-  <link rel="manifest" href="assets/imgs/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <!-- og:image -->
+  <meta property="og:image" content="assets/imgs/og-icon.png" />
+
+  <!-- Favicon icon Img -->
+  <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png"  href="assets/imgs/favicon-32x32.png"          sizes="32x32">
+  <link rel="icon" type="image/png"  href="assets/imgs/favicon-16x16.png"          sizes="16x16">
+  <link rel="icon" type="image/png"  href="assets/imgs/android-chrome-512x512.png" sizes="512x512">
+  <link rel="icon" type="image/png"  href="assets/imgs/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png"  href="assets/imgs/android-chrome-150x50.png"  sizes="150x50">
 
   <!-- Normalize File -->
   <link rel="stylesheet" href="style/css/Normalize.css">
@@ -35,8 +27,13 @@
 
 <body>
   <div class="container">
-<h1> Product Management</h1>
-<p>Application For Management any Products</p>
+<header>
+  <img src="assets/imgs/logo.png" alt="logo">
+  <div>
+    <h1> Product Management</h1>
+    <p>Application For Management any Products</p>
+  </div>
+</header>
 
 <input type="text" id="title" placeholder="Title" autofocus>
 <div class="price">
@@ -53,8 +50,8 @@
 
 <input type="search" id="search" placeholder="Search">
 <div class="search">
-  <button class="btn" id="search-title">Search By Title</button>
-  <button class="btn" id="search-category">Search By Category</button>
+  <button class="btn" id="search-title"><img src="assets/imgs/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
+  <button class="btn" id="search-category"><img src="assets/imgs/magnifying-glass-solid.svg" alt="search">Search By Category</button>
 </div>
 <div id="deleteAll"> </div>
 
@@ -69,13 +66,14 @@
       <th>DISCOUNT</th>
       <th>TOTAL</th>
       <th>CATEGORY</th>
+      <th>DATE</th>
+      <th>TIME</th>
       <th>UPDATE</th>
       <th>DELETE</th>
     </tr>
     <tbody id="tbody"> <tbody>
   </table>
 </div>
-
 </div>
   <!-- Js File -->
   <script src="js/main.js"></script>

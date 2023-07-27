@@ -14,23 +14,23 @@
 :root{
   --main-color: #4a58ef;
   --alt-color:#424bb4 ;
+  --red-color:#c12323;
 }
 /*End variables */
 body{
   font-family: "Fira Sans Condensed";
-  background-color: #036e1e;
+  background-color: #a4a9c3 ;
 }
 .container{
-  background-color: #e7ebe8;
+  background-color: #f8e4de;
   margin: 50px auto;
   padding:50px;
-  border: 4px solid #000;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow:hidden;
+  width: 80% !important;
+  border: 3px solid #000;
 }
 /*  End Global Values */
-
-
 
 /* Start @media Quire*/
 
@@ -53,20 +53,29 @@ body{
 }
 }
 /* End @media Quire*/
-
-h1{
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+header img{
+  width: 100px;
+  margin-bottom: 15px;
+}
+header h1{
   text-align: center;
   font-weight: 700;
   font-size: 45px;
-  color:var(--main-color);
+  color:#000;
 }
-p{
+header p{
   text-align: center;
   margin-top: -10px;
   margin-bottom:50px;
   font-size: 20px;
   font-weight: 600;
-  color:var(--main-color);
+  color:#000;
 }
 input{
   border-radius: 4px;
@@ -74,23 +83,27 @@ input{
   width: 100%;
   height: 40px;
   padding:0 10px;
-  margin: 10px auto;
+  margin-bottom: 22px;
   display: block;
   border: 1px solid var(--main-color);
   font-size: 22px;
   font-weight: 600;
 }
 input::placeholder{
-  color: #e61f1f;
+  color: var(--red-color);
   font-weight: 500;
 }
 .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
   border:none;
   cursor: pointer;
   border-radius: 4px;
   padding: 8px 0;
   width: 100%;
-  margin: 10px auto;
+  margin-bottom: 22px;
   background-color: var(--main-color);
   color: #fff;
   font-size: 22px;
@@ -98,6 +111,10 @@ input::placeholder{
   transition: .2s;
   user-select: none;
   text-align: center;
+}
+.btn img{
+  width: 20px;
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(103%) contrast(101%);
 }
 .btn:hover{
   background-color: var(--alt-color);
@@ -111,16 +128,19 @@ input::placeholder{
   width: 40%;
 }
 .price small {
-  background-color: #e61f1f;
-  height: 40px;
+  background-color: #a4a9c3 ;
+  margin-bottom: 22px;
   font-size: 22px;
   width: 350px;
-  padding:6px;
+  padding:8px;
   border-radius: 4px;
   color: white;
+  overflow: hidden ;
+  font-weight: 600;
 }
 .price small::before{
   content: "Total : ";
+
 }
 .search{
   display: flex;
@@ -132,13 +152,14 @@ input::placeholder{
 table{
   min-width: 100%;
   text-align: center;
-  margin: 10px auto;
+  margin: 0px auto ;
   padding: 15px;
   font-weight: 400;
   background-color: #000;
   color: #fff;
   border-collapse: collapse;
   border-spacing:0 ;
+  overflow: scroll;
 } 
 th{
   padding:10px 5px;
@@ -152,12 +173,19 @@ td{
   font-size: 26px;
   padding: 5px;
 }
+.update,
+.delete{
+  margin: 10px 0;
+}
 .delete:hover{
-  color: #e61f1f;
+  color: var(--red-color);
 }
 .update:hover{
   color: #059b2a;
 }
+#deleteAll{
+  background-color: var(--red-color);
+}
 #deleteAll:hover{
-  color: #e61f1f;
+  background-color:#962121;
 }

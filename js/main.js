@@ -14,6 +14,12 @@ let deletAll = document.getElementById( 'deleteAll' );
 let tbody = document.getElementById( 'tbody' );
 let mode = "create";
 let tmp;
+let currentTime = new Date();
+let minutes = currentTime.getMinutes();
+let hours = currentTime.getHours();
+let day = currentTime.getDate();
+let month = currentTime.getMonth();
+let year = currentTime.getFullYear();
 
 // result for total price
 function getTotal () { 
@@ -24,7 +30,7 @@ function getTotal () {
     }
     else if(price.value == ''){
       total.innerHTML = ` `;
-      total.style.background="#e61f1f"
+      total.style.background="#a4a9c3"
     }
   }
 window.onkeyup =()=>{
@@ -42,7 +48,7 @@ function clearData(){
   total.innerHTML="";
   count.value="";
   category.value = "";
-  total.style.background = "#e61f1f"
+  total.style.background = "#a4a9c3"
 }
 
 // create product
@@ -66,6 +72,11 @@ create.onclick = function (){
       total: total.innerHTML,
       count: count.value,
       category: category.value.toLowerCase(),
+      day:day,
+      month: month,
+      year: year,
+      hours: hours,
+      minutes:minutes,
   };
   if ( title.value != '' && price.value != ''&& category.value != '' ) { 
     if ( mode === "create" ){
@@ -99,12 +110,14 @@ function showData (){
     <tr>
     <td>${[i+1]}</td>
     <td>${dataPro[i].title}</td>
-    <td>${dataPro[i].price}</td>
-    <td>${dataPro[i].taxes}</td>
-    <td>${dataPro[i].ads}</td>
-    <td>${dataPro[i].discount}</td>
+    <td>${dataPro[i].price} £</td>
+    <td>${dataPro[i].taxes} £</td>
+    <td>${dataPro[i].ads} £</td>
+    <td>${dataPro[i].discount} £</td>
     <td>${dataPro[i].total} £</td>
     <td>${dataPro[i].category}</td>
+    <td>${dataPro[i].day + "/" + (dataPro[i].month + 1) + "/" + dataPro[i].year}</td>
+    <td>${dataPro[i].hours + ":" + dataPro[i].minutes}</td>
     <td><button class="btn update">UPDATE</button></td>
     <td><button class="btn delete">DELETE</button></td>
   </tr>
