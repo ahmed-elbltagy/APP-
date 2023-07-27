@@ -30,7 +30,7 @@ function getTotal () {
     }
     else if(price.value == ''){
       total.innerHTML = ` `;
-      total.style.background="#a4a9c3"
+      total.style.background="#a5aabd"
     }
   }
 window.onkeyup =()=>{
@@ -48,7 +48,7 @@ function clearData(){
   total.innerHTML="";
   count.value="";
   category.value = "";
-  total.style.background = "#a4a9c3"
+  total.style.background = "#a5aabd"
 }
 
 // create product

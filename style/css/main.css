@@ -1,4 +1,3 @@
-
 /*  Start Global Values */
 *{
   -webkit-box-sizing: border-box;
@@ -10,6 +9,21 @@
   text-decoration: none;
   outline: none
 }
+::-webkit-scrollbar {
+  width: 12px;
+
+}
+::-webkit-scrollbar-track {
+  background: #d4ac8d; 
+}
+::-webkit-scrollbar-thumb {
+  background:#000;
+  border-radius: 14px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background:#4a4949;
+}
+
 /*start variables */
 :root{
   --main-color: #4a58ef;
@@ -19,7 +33,7 @@
 /*End variables */
 body{
   font-family: "Fira Sans Condensed";
-  background-color: #a4a9c3 ;
+  background-color: #83889d ;
 }
 .container{
   background-color: #f8e4de;
@@ -27,7 +41,6 @@ body{
   padding:50px;
   border-radius: 4px;
   overflow:hidden;
-  width: 80% !important;
   border: 3px solid #000;
 }
 /*  End Global Values */
@@ -128,7 +141,7 @@ input::placeholder{
   width: 40%;
 }
 .price small {
-  background-color: #a4a9c3 ;
+  background-color: #a5aabd ;
   margin-bottom: 22px;
   font-size: 22px;
   width: 350px;
@@ -147,7 +160,7 @@ input::placeholder{
   gap: 100px;
 }
 .responsive-table{
-  overflow-x:a;
+  overflow-x: auto;
 }
 table{
   min-width: 100%;
@@ -159,7 +172,6 @@ table{
   color: #fff;
   border-collapse: collapse;
   border-spacing:0 ;
-  overflow: scroll;
 } 
 th{
   padding:10px 5px;
@@ -188,4 +200,36 @@ td{
 }
 #deleteAll:hover{
   background-color:#962121;
+}
+@media(max-width:960px){
+  header{
+    flex-direction: column;
+  }
+  header img{
+    margin-bottom: -10px;
+  }
+  .container{
+    background-color: #f8e4de;
+    margin: 20px 20px;
+    padding:20px;
+    border-radius: 4px;
+    overflow:hidden;
+    border: 3px solid #000;
+  }
+  .price{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .price input{
+    width: 100%;
+  }
+  .price small{
+    width: 100%;
+  }
+  .search{
+    flex-direction: column;
+    gap: 0;
+  }
 }
