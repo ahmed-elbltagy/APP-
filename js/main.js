@@ -17,6 +17,31 @@ let tmp;
 let currentTime = new Date();
 let date=currentTime.toLocaleDateString( "en-UK")
 let time = currentTime.toLocaleTimeString( "en-US", { hour: 'numeric', minute: '2-digit', } )
+let dark = document.querySelector( '#dark-mode' );
+let light = document.querySelector( '#light-mode' );
+
+// The Them Mode 
+dark.addEventListener('click', function(){
+  document.body.classList.add( 'dark' );
+  localStorage.setItem( "mode", "dark" );
+  light.style.display = "block";
+  dark.style.display = "none";
+} )
+light.addEventListener( "click",  ()=> {
+  document.body.classList.remove( "dark" )
+  localStorage.setItem( "mode", "light" );
+  dark.style.display = "block";
+  light.style.display = "none";
+} );
+
+// Save The Them Mode in localStorage
+if (localStorage.getItem("mode")==="dark") {
+  document.body.classList.add( "dark" );
+  light.style.display = "block";
+  dark.style.display = "none";
+}else{
+  document.body.classList.remove( "dark" )
+};
 
 // result for total price
 function getTotal () { 

@@ -9,21 +9,6 @@
   text-decoration: none;
   outline: none
 }
-::-webkit-scrollbar {
-  width: 12px;
-
-}
-::-webkit-scrollbar-track {
-  background: #d4ac8d; 
-}
-::-webkit-scrollbar-thumb {
-  background:#000;
-  border-radius: 14px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background:#4a4949;
-}
-/*  End Global Values */
 
 /*start variables */
 :root{
@@ -31,14 +16,41 @@
   --alt-color:#416f8d ;
   --red-color:#c12323;
   --background-image: linear-gradient(to right top, #b28e99, #937b8f, #716981, #4e596f, #2f4858);
-  --gray-color:#d4c8c5   ;
+  --gray-color:#d4c8c5;
   --yellow-color:#ebceb6;
   --tex-color:#313030;
+  --input-color:#e8e8e8;
+  --border-color:#000;
+  --scroll-track:#d4ac8d;
+  --scroll-bar:#000;
 }
 .dark{
-
+  background-image: linear-gradient(to right top, #10121b, #10121b, #10121b, #10121b, #10121b);
+  --yellow-color:#191d32 ;
+  --input-color:#292e45;
+  --tex-color:#e8e8e8;
+  --border-color:#252a42;
+  --scroll-track:#252a42;
+  --scroll-bar:#4b5062;
 }
 /*End variables */
+
+::-webkit-scrollbar {
+  width: 12px;
+
+}
+::-webkit-scrollbar-track {
+  background:var(--scroll-track) 
+}
+::-webkit-scrollbar-thumb {
+  background:var(--scroll-bar);
+  border-radius: 14px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background:#3b3b3b;
+}
+/*  End Global Values */
+
 
 /* Start @media Quire*/
 /* Small */
@@ -72,10 +84,8 @@ body{
   border-radius: 4px;
   overflow:hidden;
   border: 14px solid #797f96;
-  outline: 11px solid #000;
-
+  outline: 11px solid var(--border-color);
 }
-
 
 header{
   display: flex;
@@ -118,10 +128,12 @@ header .lang-mood img{
   width: 30px;
   cursor: pointer;
 }
-header .lang-mood #light_mode{
+header .lang-mood #light-mode{
   display: none;
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(103%) contrast(101%);
 }
 input{
+  background-color: var(--input-color);
   border-radius: 4px;
   outline: none;
   width: 100%;
@@ -131,7 +143,8 @@ input{
   display: block;
   border: 1px solid var(--btn-color);
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 500;
+  color: var(--tex-color);
 }
 input::placeholder{
   color: var(--red-color);
@@ -149,7 +162,7 @@ input::placeholder{
   width: 100%;
   margin-bottom: 22px;
   background-color: var(--btn-color);
-  color: #edebeb;
+  color: #e8e8e8;
   font-size: 22px;
   font-weight: 400;
   transition: .2s;
@@ -196,12 +209,13 @@ input::placeholder{
 }
 
 table {
+  width: 100% !important;
   text-align: center;
   margin: 0px auto;
   padding: 15px;
   font-weight: 300;
   background-color: #000;
-  color: #edebeb;
+  color: #e8e8e8;
   border-collapse: collapse;
   border-spacing: 0;
 }
