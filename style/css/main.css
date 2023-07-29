@@ -23,6 +23,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background:#4a4949;
 }
+/*  End Global Values */
 
 /*start variables */
 :root{
@@ -38,11 +39,32 @@
 
 }
 /*End variables */
+
+/* Start @media Quire*/
+/* Small */
+@media (min-width: 767px) {
+  .container {
+    width: 750px;
+  }
+  }
+  /* Medium */
+  @media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+  }
+  /* Large */
+  @media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+  }
+  /* End @media Quire*/
+
 body{
   font-family: "Fira Sans Condensed";
   background-image: var(--background-image);
 }
-
 .container{
   background-color: var(--yellow-color);
   margin: 70px auto;
@@ -53,29 +75,8 @@ body{
   outline: 11px solid #000;
 
 }
-/*  End Global Values */
 
-/* Start @media Quire*/
 
-/* Small */
-@media (min-width: 767px) {
-.container {
-  width: 750px;
-}
-}
-/* Medium */
-@media (min-width: 992px) {
-.container {
-  width: 970px;
-}
-}
-/* Large */
-@media (min-width: 1200px) {
-.container {
-  width: 1170px;
-}
-}
-/* End @media Quire*/
 header{
   display: flex;
   align-items: center;
@@ -244,11 +245,13 @@ tbody tr td {
   }
   header .title {
     flex-direction: column;
-    margin-bottom: 0px;
+    margin: 40px 0 0;
     gap: 0;
   }
   header .title img{
+    width: 70px;
     margin-bottom: 0px;
+    align-self: center;
   }
   header .title h1{
     text-align: center;
