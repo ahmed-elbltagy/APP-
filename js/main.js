@@ -15,11 +15,8 @@ let tbody = document.getElementById( 'tbody' );
 let mode = "create";
 let tmp;
 let currentTime = new Date();
-let minutes = currentTime.getMinutes();
-let hours = currentTime.getHours();
-let day = currentTime.getDate();
-let month = currentTime.getMonth();
-let year = currentTime.getFullYear();
+let date=currentTime.toLocaleDateString( "en-UK")
+let time = currentTime.toLocaleTimeString( "en-US", { hour: 'numeric', minute: '2-digit', } )
 
 // result for total price
 function getTotal () { 
@@ -30,12 +27,11 @@ function getTotal () {
     }
     else if(price.value == ''){
       total.innerHTML = ` `;
-      total.style.background="#a5aabd"
+      total.style.background="#000"
     }
   }
 window.onkeyup =()=>{
   getTotal();
-
 };
 
 // clearData after create product
@@ -48,7 +44,7 @@ function clearData(){
   total.innerHTML="";
   count.value="";
   category.value = "";
-  total.style.background = "#a5aabd"
+  total.style.background = "#000"
 }
 
 // create product
@@ -72,13 +68,11 @@ create.onclick = function (){
       total: total.innerHTML,
       count: count.value,
       category: category.value.toLowerCase(),
-      day:day,
-      month: month,
-      year: year,
-      hours: hours,
-      minutes:minutes,
+      date:date,
+      time:time
   };
-  if ( title.value != '' && price.value != ''&& category.value != '' ) { 
+  // && price.value != ''&& category.value != '' 
+  if ( title.value != '' ) { 
     if ( mode === "create" ){
       if(newPro.count >1){
         for ( var i = 0; i < newPro.count; i++){
@@ -110,14 +104,14 @@ function showData (){
     <tr>
     <td>${[i+1]}</td>
     <td>${dataPro[i].title}</td>
-    <td>${dataPro[i].price} £</td>
-    <td>${dataPro[i].taxes} £</td>
-    <td>${dataPro[i].ads} £</td>
-    <td>${dataPro[i].discount} £</td>
+    <td>${dataPro[i].price}</td>
+    <td>${dataPro[i].taxes}</td>
+    <td>${dataPro[i].ads}</td>
+    <td>${dataPro[i].discount}</td>
     <td>${dataPro[i].total} £</td>
     <td>${dataPro[i].category}</td>
-    <td>${dataPro[i].day + "/" + (dataPro[i].month + 1) + "/" + dataPro[i].year}</td>
-    <td>${dataPro[i].hours + ":" + dataPro[i].minutes}</td>
+    <td>${dataPro[i].date}</td>
+    <td>${dataPro[i].time}</td>
     <td><button class="btn update">UPDATE</button></td>
     <td><button class="btn delete">DELETE</button></td>
   </tr>
@@ -197,3 +191,5 @@ function searchItems (){
 search.onkeyup = function(){
   searchItems()
 }
+
+

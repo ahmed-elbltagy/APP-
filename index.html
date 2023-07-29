@@ -31,11 +31,17 @@
 <body>
   <div class="container">
 <header>
-  <img src="assets/imgs/logo.png" alt="logo">
-  <div>
-    <h1> Product Management</h1>
-    <p>Application For Management any Products</p>
+  <div class="title">
+    <img src="assets/imgs/logo.png" alt="logo">
+    <div>
+      <h1> Product Management</h1>
+      <p>Application For Management any Products</p>
+    </div>
   </div>
+<div class="lang-mood">
+  <img src="assets/svg-icon/dark_mode_black_24dp.svg"  alt="dark_mode">
+  <img src="assets/svg-icon/light_mode_black_24dp.svg" alt="light_mode">
+</div>
 </header>
 
 <input type="text" id="title" placeholder="Title" autofocus>
@@ -53,31 +59,33 @@
 
 <input type="search" id="search" placeholder="Search">
 <div class="search">
-  <button class="btn" id="search-title"><img src="assets/imgs/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
-  <button class="btn" id="search-category"><img src="assets/imgs/magnifying-glass-solid.svg" alt="search">Search By Category</button>
+  <button class="btn" id="search-title"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
+  <button class="btn" id="search-category"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search">Search By Category</button>
 </div>
 <div id="deleteAll"> </div>
 
 <div class="responsive-table">
   <table>
-    <tr>
-      <th>ID</th>
-      <th>TITLE</th>
-      <th>PRICE</th>
-      <th>TAXES</th>
-      <th>ADS</th>
-      <th>DISCOUNT</th>
-      <th>TOTAL</th>
-      <th>CATEGORY</th>
-      <th>DATE</th>
-      <th>TIME</th>
-      <th>UPDATE</th>
-      <th>DELETE</th>
-    </tr>
-    <tbody id="tbody"> <tbody>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>PRICE</th>
+        <th>TAXES</th>
+        <th>ADS</th>
+        <th>DISCOUNT</th>
+        <th>TOTAL</th>
+        <th>CATEGORY</th>
+        <th>DATE</th>
+        <th>TIME</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"> </tbody>
   </table>
 </div>
-</div>
+  </div>
   <!-- Js File -->
   <script src="js/main.js"></script>
 </body>

@@ -26,22 +26,31 @@
 
 /*start variables */
 :root{
-  --main-color:#2F4858;
-  --alt-color:#315c79 ;
+  --btn-color:#436072;
+  --alt-color:#416f8d ;
   --red-color:#c12323;
+  --background-image: linear-gradient(to right top, #b28e99, #937b8f, #716981, #4e596f, #2f4858);
+  --gray-color:#d4c8c5   ;
+  --yellow-color:#ebceb6;
+  --tex-color:#313030;
+}
+.dark{
+
 }
 /*End variables */
 body{
   font-family: "Fira Sans Condensed";
-  background-color: #83889d ;
+  background-image: var(--background-image);
 }
+
 .container{
-  background-color: #f8e4de;
-  margin: 50px auto;
-  padding:50px;
+  background-color: var(--yellow-color);
+  margin: 70px auto;
+  padding:20px 50px;
   border-radius: 4px;
   overflow:hidden;
-  border: 3px solid #000;
+  border: 14px solid #797f96;
+  outline: 11px solid #000;
 }
 /*  End Global Values */
 
@@ -71,24 +80,38 @@ header{
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin: 50px 0;
+  position: relative;
 }
-header img{
+header .title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+header .title img{
   width: 100px;
   margin-bottom: 15px;
 }
-header h1{
+header .title h1{
   text-align: center;
   font-weight: 700;
   font-size: 45px;
-  color:#000;
+  color:var(--tex-color);
 }
-header p{
+header .title p{
   text-align: center;
   margin-top: -10px;
   margin-bottom:50px;
   font-size: 20px;
   font-weight: 600;
-  color:#000;
+  color:var(--tex-color);
+}
+header .lang-mood{
+  position: absolute;
+  right: 5px;
+  top: -30px;
+  
 }
 input{
   border-radius: 4px;
@@ -98,7 +121,7 @@ input{
   padding:0 10px;
   margin-bottom: 22px;
   display: block;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--btn-color);
   font-size: 22px;
   font-weight: 600;
 }
@@ -117,8 +140,8 @@ input::placeholder{
   padding: 8px 0;
   width: 100%;
   margin-bottom: 22px;
-  background-color: var(--main-color);
-  color: #fff;
+  background-color: var(--btn-color);
+  color: #edebeb;
   font-size: 22px;
   font-weight: bold;
   transition: .2s;
@@ -141,19 +164,19 @@ input::placeholder{
   width: 40%;
 }
 .price small {
-  background-color: #a5aabd ;
+  background-color: #000 ;
   margin-bottom: 22px;
-  font-size: 22px;
+  font-size: 20px;
   width: 350px;
-  padding:8px;
+  padding:7px;
   border-radius: 4px;
-  color: white;
+  color: #edebeb;
   overflow: hidden ;
   font-weight: 600;
+  height: 39px;
 }
 .price small::before{
   content: "Total : ";
-
 }
 .search{
   display: flex;
@@ -169,7 +192,7 @@ table{
   padding: 15px;
   font-weight: 400;
   background-color: #000;
-  color: #fff;
+  color: #edebeb;
   border-collapse: collapse;
   border-spacing:0 ;
 } 
@@ -177,11 +200,11 @@ th{
   padding:10px 5px;
   font-size: 25px;
   font-weight: 600;
-  border: 3px solid var(--main-color);
+  border: 3px solid var(--btn-color);
   user-select: none;
 }
 td{
-  border: 3px solid var(--main-color);
+  border: 3px solid var(--btn-color);
   font-size: 26px;
   padding: 5px;
 }
@@ -204,17 +227,37 @@ td{
 @media(max-width:960px){
   header{
     flex-direction: column;
+    margin: 40px 0 0;
   }
-  header img{
-    margin-bottom: -10px;
+  header .title {
+    flex-direction: column;
+    margin-bottom: 0px;
+    gap: 0;
+  }
+  header .title img{
+    margin-bottom: 0px;
+  }
+  header .title h1{
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    color:var(--tex-color);
+  }
+  header .title p{
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom:50px;
+    font-size: 22px;
+    font-weight: 600;
+    color:var(--tex-color);
   }
   .container{
-    background-color: #f8e4de;
-    margin: 20px 12px;
-    padding:20px;
+    margin: 20px 14px;
+    padding:10px;
     border-radius: 4px;
     overflow:hidden;
-    border: 3px solid #000;
+    border: 5px solid #797f96;
+    outline: 5px solid #000;
   }
   .price{
     display: flex;
