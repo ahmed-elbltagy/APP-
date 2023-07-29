@@ -1,9 +1,44 @@
 
-/* Main Font */
+/* Main Font*/
 @font-face {
   font-family: "Fira Sans Condensed";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
   font-display: swap;
-  src: url("../../assets/fonts/main-font/Fira-Sans.woff2") format('woff2');
-}
+  src: url("../../assets/fonts/main-font/300.woff2") format('woff2');
+} 
+@font-face {
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/main-font/400.woff2") format('woff2');
+} 
+@font-face {
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../assets/fonts/main-font/500.woff2") format('woff2');
+} 
+@font-face {
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../assets/fonts/main-font/600.woff2") format('woff2');
+} 
+@font-face {
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../assets/fonts/main-font/700.woff2") format('woff2');
+} 
+@font-face {
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../assets/fonts/main-font/800.woff2") format('woff2');
+} 

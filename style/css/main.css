@@ -95,7 +95,7 @@ header .title img{
 }
 header .title h1{
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 45px;
   color:var(--tex-color);
 }
@@ -104,14 +104,21 @@ header .title p{
   margin-top: -10px;
   margin-bottom:50px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   color:var(--tex-color);
+  /* color:var(--btn-color); */
 }
 header .lang-mood{
   position: absolute;
   right: 5px;
   top: -30px;
-  
+}
+header .lang-mood img{
+  width: 30px;
+  cursor: pointer;
+}
+header .lang-mood #light_mode{
+  display: none;
 }
 input{
   border-radius: 4px;
@@ -123,11 +130,11 @@ input{
   display: block;
   border: 1px solid var(--btn-color);
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 400;
 }
 input::placeholder{
   color: var(--red-color);
-  font-weight: 500;
+  font-weight: 300;
 }
 .btn{
   display: flex;
@@ -143,7 +150,7 @@ input::placeholder{
   background-color: var(--btn-color);
   color: #edebeb;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 400;
   transition: .2s;
   user-select: none;
   text-align: center;
@@ -190,7 +197,7 @@ table{
   text-align: center;
   margin: 0px auto ;
   padding: 15px;
-  font-weight: 400;
+  font-weight: 300;
   background-color: #000;
   color: #edebeb;
   border-collapse: collapse;
@@ -199,7 +206,7 @@ table{
 th{
   padding:10px 5px;
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 400;
   border: 3px solid var(--btn-color);
   user-select: none;
 }
@@ -207,6 +214,10 @@ td{
   border: 3px solid var(--btn-color);
   font-size: 26px;
   padding: 5px;
+  width: auto;
+}
+tbody tr td {
+  width: 140px !important;
 }
 .update,
 .delete{
@@ -241,15 +252,13 @@ td{
     text-align: center;
     font-weight: 700;
     font-size: 30px;
-    color:var(--tex-color);
   }
   header .title p{
     text-align: center;
     margin-top: -10px;
     margin-bottom:50px;
-    font-size: 22px;
-    font-weight: 600;
-    color:var(--tex-color);
+    font-size: 18px;
+    font-weight: 400;
   }
   .container{
     margin: 20px 14px;
