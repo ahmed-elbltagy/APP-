@@ -25,7 +25,6 @@ let USA= document.querySelector( '#USA-flag' );
 let EGY = document.querySelector( '#EGY-flag' );
 let empty = document.querySelector( '#empty' );
 
-
 // Select Language
 selectLang.addEventListener( 'change', function(){
   if(selectLang.value == 'arabic'){
@@ -33,12 +32,14 @@ selectLang.addEventListener( 'change', function(){
     EGY.style.display = "block";
     USA.style.display = "none";
     localStorage.setItem( 'selectedLang', 'arabic' );
+    searchIcon.style.right="10px";
   }
   else if(selectLang.value == 'english'){
     document.querySelector("html").setAttribute("dir","ltr");
     USA.style.display = "block";
     EGY.style.display = "none";
     localStorage.setItem( 'selectedLang', 'english' );
+    searchIcon.style.left="10px";
   }
 })
 // Save The Them selectedLang in localStorage
@@ -46,10 +47,12 @@ if ( localStorage.getItem( 'selectedLang' ) === 'arabic' ) {
   document.querySelector("html").setAttribute("dir","rtl");
   EGY.style.display = "block";
   USA.style.display = "none";
+  searchIcon.style.right="10px";
 }else{
   USA.style.display = "block";
   EGY.style.display = "none";
   localStorage.setItem( 'selectedLang', 'english' );
+  searchIcon.style.left="10px";
 }
 
 // The Them Mode 
@@ -75,11 +78,7 @@ if (localStorage.getItem("mode")==="dark") {
   document.body.classList.remove( "dark" )
 };
 
-if (document.querySelector("html").getAttribute("dir") === "rtl") {
-  searchIcon.style.right="1%";
-}
-
-// result for total price
+//getTotal price
 function getTotal () { 
     if(price.value !== ''){
       let result =( +price.value + +taxes.value + +ads.value) - +discount.value;
