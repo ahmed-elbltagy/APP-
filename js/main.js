@@ -19,6 +19,38 @@ let date=currentTime.toLocaleDateString( "en-UK")
 let time = currentTime.toLocaleTimeString( "en-US", { hour: 'numeric', minute: '2-digit', } )
 let dark = document.querySelector( '#dark-mode' );
 let light = document.querySelector( '#light-mode' );
+let searchIcon = document.querySelector( '#search-icon' );
+let selectLang = document.querySelector( '#select-lang' );
+let USA= document.querySelector( '#USA-flag' );
+let EGY = document.querySelector( '#EGY-flag' );
+let empty = document.querySelector( '#empty' );
+
+
+// Select Language
+selectLang.addEventListener( 'change', function(){
+  if(selectLang.value == 'arabic'){
+    document.querySelector("html").setAttribute("dir","rtl");
+    EGY.style.display = "block";
+    USA.style.display = "none";
+    localStorage.setItem( 'selectedLang', 'arabic' );
+  }
+  else if(selectLang.value == 'english'){
+    document.querySelector("html").setAttribute("dir","ltr");
+    USA.style.display = "block";
+    EGY.style.display = "none";
+    localStorage.setItem( 'selectedLang', 'english' );
+  }
+})
+// Save The Them selectedLang in localStorage
+if ( localStorage.getItem( 'selectedLang' ) === 'arabic' ) { 
+  document.querySelector("html").setAttribute("dir","rtl");
+  EGY.style.display = "block";
+  USA.style.display = "none";
+}else{
+  USA.style.display = "block";
+  EGY.style.display = "none";
+  localStorage.setItem( 'selectedLang', 'english' );
+}
 
 // The Them Mode 
 dark.addEventListener('click', function(){
@@ -42,6 +74,10 @@ if (localStorage.getItem("mode")==="dark") {
 }else{
   document.body.classList.remove( "dark" )
 };
+
+if (document.querySelector("html").getAttribute("dir") === "rtl") {
+  searchIcon.style.right="1%";
+}
 
 // result for total price
 function getTotal () { 

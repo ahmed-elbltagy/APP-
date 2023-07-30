@@ -77,14 +77,14 @@ body{
   font-family: "Fira Sans Condensed";
   background-image: var(--background-image);
 }
+
 .container{
   background-color: var(--yellow-color);
-  margin: 70px auto;
   padding:20px 20px;
   border-radius: 4px;
   overflow:hidden;
-  /* border: 14px solid #797f96; */
-  outline: 11px solid var(--border-color);
+  outline: 7px solid var(--border-color);
+  margin: 70px  auto;
 }
 
 header{
@@ -119,16 +119,37 @@ header .title p{
   font-weight: 500;
   color:var(--tex-color);
 }
-header .lang-mood{
+header .lang-theme{
   position: absolute;
   right: 5px;
   top: -30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-header .lang-mood img{
+header .lang-theme #EGY-flag{
+  display: none;
+}
+header .lang-theme select{
+  padding: 2px;
+  outline: none;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  color:var(--tex-color);
+  cursor: pointer;
+  font-size: 18px;
+}
+header .lang-theme select option{
+  color:var(--tex-color);
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+}
+header .lang-theme img{
   width: 30px;
   cursor: pointer;
 }
-header .lang-mood #light-mode{
+header .lang-theme #light-mode{
   display: none;
   filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(103%) contrast(101%);
 }
@@ -148,7 +169,7 @@ input{
 }
 input::placeholder{
   color: var(--red-color);
-  font-weight: 300;
+  font-weight: 400;
 }
 .btn{
   display: flex;
@@ -168,10 +189,6 @@ input::placeholder{
   transition: .2s;
   user-select: none;
   text-align: center;
-}
-.btn img{
-  width: 20px;
-  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(103%) contrast(101%);
 }
 .btn:hover{
   background-color: var(--alt-color);
@@ -200,9 +217,26 @@ input::placeholder{
 .price small::before{
   content: "Total : ";
 }
-.search{
+.search-box{
+  position: relative;
+}
+.search-box input{
+  padding:0 40px;
+}
+.search-box img{
+  width: 20px;
+  filter: invert(20%) sepia(87%) saturate(2327%) hue-rotate(348deg) brightness(95%) contrast(90%);
+  position: absolute;
+  top: 25%;
+  left: 1%;
+}
+.search-btn{
   display: flex;
   gap: 100px;
+}
+.search-btn .btn img{
+  width: 20px;
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(103%) contrast(101%);
 }
 .responsive-table {
   overflow: auto;
@@ -280,12 +314,15 @@ tbody tr td {
     font-size: 18px;
     font-weight: 400;
   }
+  header .lang-theme #light-mode ,
+  header .lang-theme #dark-mode {
+    width: 26px;
+  }
   .container{
-    margin: 20px 14px;
+    margin: 20px auto;
     padding:10px;
     border-radius: 4px;
     overflow:hidden;
-    border: 5px solid #797f96;
     outline: 5px solid #000;
   }
   .price{

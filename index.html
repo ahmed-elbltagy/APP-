@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <title>Product Management </title>
   <meta charset="UTF-8">
@@ -29,64 +29,75 @@
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <div class="title">
-        <img src="assets/imgs/logo.png" alt="logo">
-        <div>
-          <h1> Product Management</h1>
-          <p>Application For Management any Products</p>
+    <div class="container">
+      <header>
+        <div class="title">
+          <img src="assets/imgs/logo.png" alt="logo">
+          <div>
+            <h1> Product Management</h1>
+            <p>Application For Management any Products</p>
+          </div>
         </div>
+      <div class="lang-theme" dir="ltr">
+          <img src="assets/imgs/usa.png"   alt="USA-flag" id="USA-flag">
+          <img src="assets/imgs/egypt.png" alt="EGY-flag" id="EGY-flag">
+        <select id="select-lang" placeholder="fefef">
+          <option value="english" id="english">English</option>
+          <option value="arabic"  id="arabic">Arabic</option>
+          </optgroup>
+        </select>
+        <img src="assets/svg-icon/dark_mode_black_24dp.svg"  alt="dark_mode"  id="dark-mode">
+        <img src="assets/svg-icon/light_mode_black_24dp.svg" alt="light_mode" id="light-mode">
+    
       </div>
-    <div class="lang-mood">
-      <img src="assets/svg-icon/dark_mode_black_24dp.svg"  alt="dark_mode"  id="dark-mode">
-      <img src="assets/svg-icon/light_mode_black_24dp.svg" alt="light_mode" id="light-mode">
+      </header>
+      
+      <input type="text" id="title" placeholder="Title" autofocus>
+      <div class="price">
+        <input type="number" id="price" placeholder="Price">
+        <input type="number" id="taxes" placeholder="Taxes">
+        <input type="number" id="ads" placeholder="Ads">
+        <input type="number" id="discount" placeholder="Discount">
+        <small id="total"></small>
+      </div>
+      <input type="number" id="count" placeholder="Count" maxlength="3">
+      <input type="text"   id="category" placeholder="Category">
+      
+      <button class="btn" id="create">Create</button>
+      <div class="search-box">
+        <img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search" id="search-icon">
+        <input type="search" id="search" placeholder="Search">
+      </div>
+      <div class="search-btn">
+        <button class="btn" id="search-title"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
+        <button class="btn" id="search-category"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search">Search By Category</button>
+      </div>
+      <div id="deleteAll"> </div>
+      
+      <div class="responsive-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th><pre>  TITLE   </pre></th>
+              <th>PRICE</th>
+              <th>TAX</th>
+              <th>ADS</th>
+              <th>DISC</th>
+              <th><pre> TOTAL </pre></th>
+              <th>CATEGORY</th>
+              <th>DATE</th>
+              <th><pre>  TIME  </pre></th>
+              <th>UPDATE</th>
+              <th>DELETE</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"> </tbody>
+        </table>
+      </div>
     </div>
-    </header>
-    
-    <input type="text" id="title" placeholder="Title" autofocus>
-    <div class="price">
-      <input type="number" id="price" placeholder="Price">
-      <input type="number" id="taxes" placeholder="Taxes">
-      <input type="number" id="ads" placeholder="Ads">
-      <input type="number" id="discount" placeholder="Discount">
-      <small id="total"></small>
-    </div>
-    <input type="number" id="count" placeholder="Count" maxlength="3">
-    <input type="text"   id="category" placeholder="Category">
-    
-    <button class="btn" id="create">Create</button>
-    
-    <input type="search" id="search" placeholder="Search">
-    <div class="search">
-      <button class="btn" id="search-title"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
-      <button class="btn" id="search-category"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search">Search By Category</button>
-    </div>
-    <div id="deleteAll"> </div>
-    
-    <div class="responsive-table">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th><pre>  TITLE   </pre></th>
-            <th>PRICE</th>
-            <th>TAX</th>
-            <th>ADS</th>
-            <th>DISC</th>
-            <th><pre> TOTAL </pre></th>
-            <th>CATEGORY</th>
-            <th>DATE</th>
-            <th><pre>  TIME  </pre></th>
-            <th>UPDATE</th>
-            <th>DELETE</th>
-          </tr>
-        </thead>
-        <tbody id="tbody"> </tbody>
-      </table>
-    </div>
-  </div>
   <!-- Js File -->
   <script src="js/main.js"></script>
 </body>
+
 </html>
