@@ -12,7 +12,7 @@
 
 /*start variables */
 :root{
-  --btn-color:#32566c;
+  --btn-color:#2f5267;
   --alt-color:#416f8d ;
   --red-color:#c12323;
   --background-image: linear-gradient(to right top, #c0a1aa, #a58fa1, #837b93, #5c667c, #4d6473);
@@ -23,16 +23,18 @@
   --scroll-track:#32566c;
   --scroll-bar:#000;
   --border-color:#000;
+  --filter:invert(98%) sepia(45%) saturate(6560%) hue-rotate(178deg) brightness(106%) contrast(107%);
 }
 .dark{
   background-image: linear-gradient(to right top, #10121b, #10121b, #10121b, #10121b, #10121b);
-  --main-color:#191d32 ;
-  --main-color:#ffffff0d ;
+  --main-color:#ffffff0d  ;
   --input-color:#292e45;
   --input-tex:#e8e8e8;
   --scroll-track:#252a42;
   --scroll-bar:#4b5062;
   --border-color:#32566c;
+  --tex-color:#a1b6d7;
+  --filter: invert(78%) sepia(21%) saturate(419%) hue-rotate(179deg) brightness(91%) contrast(84%);
 }
 /*End variables */
 
@@ -154,7 +156,7 @@ header .lang-theme #dark-mode{
 }
 header .lang-theme #light-mode{
   display: none;
-  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(103%) contrast(101%);
+  filter: invert(78%) sepia(21%) saturate(419%) hue-rotate(179deg) brightness(91%) contrast(84%);
 }
 
 input{
@@ -191,7 +193,6 @@ input::placeholder{
   color: var(--tex-color);
   font-size: 22px;
   font-weight: 400;
-  transition: .2s;
   user-select: none;
   text-align: center;
 }
@@ -244,7 +245,7 @@ input::placeholder{
 .search-btn .btn img{
   width: 20px;
   margin: 0 10px;
-  filter: invert(97%) sepia(100%) saturate(2180%) hue-rotate(178deg) brightness(107%) contrast(104%);
+  filter:var(--filter);
 }
 .responsive-table {
   overflow: auto;
