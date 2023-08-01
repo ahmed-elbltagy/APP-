@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Product Management </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This APP For Create Product, Git Total Price and Save Data In The Memory ">
+  <meta name="keywords"    content="Product Management data Total Price">
+  <meta name="author"      content="Ahmed Nabil">
+
+  <!-- og:image -->
+  <meta property="og:image" content="assets/imgs/og-icon.png" />
+
+  <!-- Favicon icon Img -->
+  <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png"  href="assets/imgs/favicon-32x32.png"          sizes="32x32">
+  <link rel="icon" type="image/png"  href="assets/imgs/favicon-16x16.png"          sizes="16x16">
+  <link rel="icon" type="image/png"  href="assets/imgs/android-chrome-512x512.png" sizes="512x512">
+  <link rel="icon" type="image/png"  href="assets/imgs/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png"  href="assets/imgs/android-chrome-150x50.png"  sizes="150x50">
+
+  <!-- Normalize File -->
+  <link rel="stylesheet" href="style/css/Normalize.css">
+  <!-- Fonts File -->
+  <link rel="stylesheet" href="style/css/fonts.css">
+  <!-- Css Main File -->
+  <link rel="stylesheet" href="style/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+      <header>
+        <div class="title">
+          <img src="assets/imgs/logo.png" alt="logo">
+          <div>
+            <h1 data-lang="hedTitle"> Product Management</h1>
+            <p  data-lang="discretion">Application For Management any Products</p>
+          </div>
+        </div>
+      <div class="lang-theme" dir="ltr">
+          <img src="assets/imgs/usa.png"   alt="USA-flag" id="USA-flag">
+          <img src="assets/imgs/egypt.png" alt="EGY-flag" id="EGY-flag">
+        <select id="select-lang">
+          <option value="english" id="english" data-lang="english">English</option>
+          <option value="arabic"  id="arabic"  data-lang="arabic">Arabic</option>
+          </optgroup>
+        </select>
+        <img src="assets/svg-icon/dark_mode_black_24dp.svg"  alt="dark_mode"  id="dark-mode">
+        <img src="assets/svg-icon/light_mode_black_24dp.svg" alt="light_mode" id="light-mode">
+    
+      </div>
+      </header>
+      
+      <input type="text" id="title">
+      <div class="price">
+        <input type="number" id="price">
+        <input type="number" id="taxes">
+        <input type="number" id="ads">
+        <input type="number" id="discount">
+        <small id="total" data-before="Total : "></small>
+      </div>
+      <input type="number" id="count">
+      <input type="text"   id="category">
+      
+      <button class="btn" id="create" data-lang="Create">Create</button>
+      <div class="search-box">
+        <img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search" id="search-icon">
+        <input type="search" id="search">
+      </div>
+      <div class="search-btn">
+        <button class="btn" id="search-title" data-lang="SearchTi"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
+        <button class="btn" id="search-category" data-lang="SearchCa"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search">Search By Category</button>
+      </div>
+      <div class="btn" id="deleteAll" data-lang="deleteAll">Delete All</div>
+      
+      <div class="responsive-table">
+        <table>
+          <thead>
+            <tr>
+              <th data-lang="ID"></th>
+              <th data-lang="TITLE" class="title"></th>
+              <th data-lang="PRICE"></th>
+              <th data-lang="TAX"></th>
+              <th data-lang="ADS"></th>
+              <th data-lang="DISC"></th>
+              <th data-lang="TOTAL" class="total"></th>
+              <th data-lang="CATEGORY"></th>
+              <th data-lang="DATE"></th>
+              <th data-lang="TIME" class="time"></th>
+              <th data-lang="UPDATE"></th>
+              <th data-lang="DELETE"></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"> </tbody>
+        </table>
+      </div>
+    </div>
+  <!-- Js File -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
