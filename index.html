@@ -34,16 +34,16 @@
         <div class="title">
           <img src="assets/imgs/logo.png" alt="logo">
           <div>
-            <h1> Product Management</h1>
-            <p>Application For Management any Products</p>
+            <h1 data-lang="hedTitle"> Product Management</h1>
+            <p  data-lang="discretion">Application For Management any Products</p>
           </div>
         </div>
       <div class="lang-theme" dir="ltr">
           <img src="assets/imgs/usa.png"   alt="USA-flag" id="USA-flag">
           <img src="assets/imgs/egypt.png" alt="EGY-flag" id="EGY-flag">
         <select id="select-lang">
-          <option value="english" id="english">English</option>
-          <option value="arabic"  id="arabic">Arabic</option>
+          <option value="english" id="english" data-lang="english">English</option>
+          <option value="arabic"  id="arabic"  data-lang="arabic">Arabic</option>
           </optgroup>
         </select>
         <img src="assets/svg-icon/dark_mode_black_24dp.svg"  alt="dark_mode"  id="dark-mode">
@@ -52,44 +52,44 @@
       </div>
       </header>
       
-      <input type="text" id="title" placeholder="Title" autofocus>
+      <input type="text" id="title">
       <div class="price">
-        <input type="number" id="price" placeholder="Price">
-        <input type="number" id="taxes" placeholder="Taxes">
-        <input type="number" id="ads" placeholder="Ads">
-        <input type="number" id="discount" placeholder="Discount">
-        <small id="total"></small>
+        <input type="number" id="price">
+        <input type="number" id="taxes">
+        <input type="number" id="ads">
+        <input type="number" id="discount">
+        <small id="total" data-before="Total : "></small>
       </div>
-      <input type="number" id="count" placeholder="Count" maxlength="3">
-      <input type="text"   id="category" placeholder="Category">
+      <input type="number" id="count">
+      <input type="text"   id="category">
       
-      <button class="btn" id="create">Create</button>
+      <button class="btn" id="create" data-lang="Create">Create</button>
       <div class="search-box">
         <img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search" id="search-icon">
-        <input type="search" id="search" placeholder="Search">
+        <input type="search" id="search">
       </div>
       <div class="search-btn">
-        <button class="btn" id="search-title"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
-        <button class="btn" id="search-category"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search">Search By Category</button>
+        <button class="btn" id="search-title" data-lang="SearchTi"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search"> Search By Title</button>
+        <button class="btn" id="search-category" data-lang="SearchCa"><img src="assets/svg-icon/magnifying-glass-solid.svg" alt="search">Search By Category</button>
       </div>
-      <div id="deleteAll"> </div>
+      <div class="btn" id="deleteAll" data-lang="deleteAll">Delete All</div>
       
       <div class="responsive-table">
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th><pre>  TITLE   </pre></th>
-              <th>PRICE</th>
-              <th>TAX</th>
-              <th>ADS</th>
-              <th>DISC</th>
-              <th><pre> TOTAL </pre></th>
-              <th>CATEGORY</th>
-              <th>DATE</th>
-              <th><pre>  TIME  </pre></th>
-              <th>UPDATE</th>
-              <th>DELETE</th>
+              <th data-lang="ID"></th>
+              <th data-lang="TITLE" class="title"></th>
+              <th data-lang="PRICE"></th>
+              <th data-lang="TAX"></th>
+              <th data-lang="ADS"></th>
+              <th data-lang="DISC"></th>
+              <th data-lang="TOTAL" class="total"></th>
+              <th data-lang="CATEGORY"></th>
+              <th data-lang="DATE"></th>
+              <th data-lang="TIME" class="time"></th>
+              <th data-lang="UPDATE"></th>
+              <th data-lang="DELETE"></th>
             </tr>
           </thead>
           <tbody id="tbody"> </tbody>

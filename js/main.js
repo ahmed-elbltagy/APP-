@@ -25,34 +25,143 @@ let USA= document.querySelector( '#USA-flag' );
 let EGY = document.querySelector( '#EGY-flag' );
 let empty = document.querySelector( '#empty' );
 
+//switch language
+const translations = {
+  english: {
+    hedTitle: "Product Management",
+    discretion: "Application For Management any Products",
+    english: "English",
+    arabic: "Arabic",
+    Create: "Create",
+    SearchTi: "Search By Title",
+    SearchCa: "Search By Category",
+    deleteAll: "Delete All",
+    ID: "ID",
+    TITLE: "Title",
+    PRICE: "Price",
+    TAX: "TAX",
+    ADS: "ADS",
+    DISC: "DISC",
+    TOTAL: "Total",
+    CATEGORY: "Category",
+    DATE: "Date",
+    TIME: "Time",
+    UPDATE: "UPDATE",
+    DELETE: "DELETE",
+  },
+  arabic: {
+    hedTitle: "إدارة المنتجات",
+    discretion: "تطبيق لإدارة  مختلف انواع المنتجات",
+    english: "الأنجليزيه",
+    arabic: "العربية",
+    Create: "إنشاء منتج",
+    SearchTi: "بحث بواسطة العنوان",
+    SearchCa: "بحث بواسطة الصنف",
+    deleteAll: "حذف الكل",
+    ID: "الرقم",
+    TITLE: "العنوان",
+    PRICE: "السعر",
+    TAX: "ضرائب",
+    ADS: "اعلانات",
+    DISC: "خصم",
+    TOTAL: "المجموع",
+    CATEGORY: "الصنف",
+    DATE: "التاريخ",
+    TIME: "الوقت",
+    UPDATE: "تحديث",
+    DELETE: "حذف",
+  }
+};
+function switchLanguage(lang){
+  const element = document.querySelectorAll( "[data-lang]" );
+  element.forEach(( element) =>{
+    const transKey = element.getAttribute( "data-lang" )
+    element.textContent = translations[ lang ][ transKey ];
+  })
+}
+
 // Select Language
 selectLang.addEventListener( 'change', function(){
-  if(selectLang.value == 'arabic'){
-    document.querySelector("html").setAttribute("dir","rtl");
+  switchLanguage( selectLang.value );
+  if ( selectLang.value == 'arabic' ){
+    document.dir = "rtl";
     EGY.style.display = "block";
     USA.style.display = "none";
+    searchIcon.style.right = "10px";
+    selectLang.value = 'arabic';
     localStorage.setItem( 'selectedLang', 'arabic' );
-    searchIcon.style.right="10px";
+    date = currentTime.toLocaleDateString( "ar-EG" );
+    time = currentTime.toLocaleTimeString( "ar-EG", { hour: 'numeric', minute: '2-digit', } );
+    title.setAttribute( "placeholder", "عنوان المنتج" );
+    price.setAttribute( "placeholder", "سعر المنتج" );
+    taxes.setAttribute( "placeholder", "الضرائب" );
+    ads.setAttribute( "placeholder", " الأعلانات" );
+    discount.setAttribute( "placeholder", "الخصم" );
+    count.setAttribute( "placeholder", " الكميه" );
+    category.setAttribute( "placeholder", " الصنف" );
+    search.setAttribute( "placeholder", " بحث" );
+    total.setAttribute( 'data-before', 'المجموع : ' );
   }
-  else if(selectLang.value == 'english'){
-    document.querySelector("html").setAttribute("dir","ltr");
+  else if ( selectLang.value == 'english' )
+  {
+    document.dir = "ltr";
     USA.style.display = "block";
     EGY.style.display = "none";
+    searchIcon.style.left = "10px";
+    selectLang.value = 'english';
     localStorage.setItem( 'selectedLang', 'english' );
-    searchIcon.style.left="10px";
+    date = currentTime.toLocaleDateString( "en-UK" );
+    time = currentTime.toLocaleTimeString( "en-US", { hour: 'numeric', minute: '2-digit', } );
+    title.setAttribute( "placeholder", "title" );
+    price.setAttribute( "placeholder", "price" );
+    taxes.setAttribute( "placeholder", "taxes" );
+    ads.setAttribute( "placeholder", "ads" );
+    discount.setAttribute( "placeholder", "discount" );
+    count.setAttribute( "placeholder", "count" );
+    category.setAttribute( "placeholder", "category" );
+    search.setAttribute( "placeholder", "search" );
+    total.setAttribute( 'data-before', 'Total : ' );
   }
-})
-// Save The Them selectedLang in localStorage
+  showData()
+} )
+// Save The selectedLang in localStorage
 if ( localStorage.getItem( 'selectedLang' ) === 'arabic' ) { 
-  document.querySelector("html").setAttribute("dir","rtl");
+  document.dir="rtl";
   EGY.style.display = "block";
   USA.style.display = "none";
-  searchIcon.style.right="10px";
+  searchIcon.style.right = "10px";
+  selectLang.value = 'arabic'
+  date = currentTime.toLocaleDateString( "ar-EG" )
+  time = currentTime.toLocaleTimeString( "ar-EG", { hour: 'numeric', minute: '2-digit', } )
+  title.setAttribute("placeholder","عنوان المنتج")
+  price.setAttribute("placeholder","سعر المنتج")
+  taxes.setAttribute("placeholder","الضرائب")
+  ads.setAttribute("placeholder"," الأعلانات")
+  discount.setAttribute("placeholder","الخصم")
+  count.setAttribute("placeholder"," الكميه")
+  category.setAttribute("placeholder"," الصنف")
+  search.setAttribute( "placeholder", " بحث" )
+  total.setAttribute( 'data-before', 'المجموع : ' )
+    switchLanguage( selectLang.value );
 }else{
+  document.dir="ltr";
   USA.style.display = "block";
   EGY.style.display = "none";
   localStorage.setItem( 'selectedLang', 'english' );
-  searchIcon.style.left="10px";
+  searchIcon.style.left = "10px";
+  selectLang.value = 'english';
+  date = currentTime.toLocaleDateString( "en-UK" )
+  time = currentTime.toLocaleTimeString( "en-US", { hour: 'numeric', minute: '2-digit', } )
+  title.setAttribute("placeholder","Title")
+  price.setAttribute("placeholder","Price")
+  taxes.setAttribute("placeholder","Taxes")
+  ads.setAttribute("placeholder","Ads")
+  discount.setAttribute("placeholder","Discount")
+  count.setAttribute("placeholder","Count")
+  category.setAttribute("placeholder","Category")
+  search.setAttribute( "placeholder", "Search" )
+  total.setAttribute( 'data-before', 'Total : ' )
+  switchLanguage(selectLang.value);
 }
 
 // The Them Mode 
@@ -78,21 +187,60 @@ if (localStorage.getItem("mode")==="dark") {
   document.body.classList.remove( "dark" )
 };
 
+//Save Date In Session Storage
+  function saveSession(){
+    sessionStorage.setItem("title", title.value)
+    sessionStorage.setItem("price", price.value)
+    sessionStorage.setItem("taxes", taxes.value)
+    sessionStorage.setItem("ads", ads.value)
+    sessionStorage.setItem("discount", discount.value )
+    sessionStorage.setItem("total", total.innerHTML )
+    sessionStorage.setItem("count", count.value)
+    sessionStorage.setItem( "category", category.value )
+  }
+  if (sessionStorage.key( "title" ) )
+  {title.value = sessionStorage.getItem( "title" ); }
+  if (sessionStorage.key( "price" ) )
+  {price.value = sessionStorage.getItem( "price" ); }
+  if (sessionStorage.key( "taxes" ) )
+  {taxes.value = sessionStorage.getItem( "taxes" ); }
+  if (sessionStorage.key( "ads" ) )
+  {ads.value = sessionStorage.getItem( "ads" ); }
+  if (sessionStorage.key( "discount" ) )
+  {discount.value = sessionStorage.getItem( "discount" ); }
+  if ( sessionStorage.key( "total" ) )
+  {total.innerHTML = sessionStorage.getItem( "total" );}
+  if (sessionStorage.key( "count" ) )
+  {count.value = sessionStorage.getItem( "count" ); }
+  if (sessionStorage.key( "category" ) )
+  {category.value = sessionStorage.getItem( "category" ); }
+
 //getTotal price
 function getTotal () { 
     if(price.value !== ''){
       let result =( +price.value + +taxes.value + +ads.value) - +discount.value;
-      total.textContent  = result;
-      total.style.background="#068d28"
+      total.textContent = result;
+        total.style.background = "#008a61";
     }
     else if(price.value == ''){
       total.innerHTML = ` `;
       total.style.background="#212121"
     }
-  }
+}
+
+
 window.onkeyup =()=>{
   getTotal();
-};
+  saveSession();
+}; 
+
+window.onload =()=>{
+  if (!price.value == '' ) { 
+    total.style.background = "#008a61";
+  }else if (price.valueL == '' ){
+    total.style.background = "#212121";
+  }
+}; 
 
 // clearData after create product
 function clearData(){
@@ -119,21 +267,34 @@ if (localStorage.product) {
   dataPro = [];
 }
 create.onclick = function (){
-    let newPro = {
-      title: title.value.toLowerCase(),
-      price: price.value,
-      taxes: taxes.value,
-      ads: ads.value,
-      discount: discount.value,
-      total: total.innerHTML,
-      count: count.value,
-      category: category.value.toLowerCase(),
-      date:date,
-      time:time
+  sessionStorage.clear()
+  let pound;
+  if(selectLang.value == 'arabic'){
+    pound = 'ج.م'
+  } else if ( selectLang.value == 'english' ){
+    pound = '£'
+  }
+  let newPro = {
+    title: title.value.toLowerCase(),
+    price: price.value,
+    taxes: taxes.value,
+    ads: ads.value,
+    discount: discount.value,
+    total: total.innerHTML,
+    count: count.value,
+    category: category.value.toLowerCase(),
+    date:date,
+    time: time,
+    pound:pound
   };
   // && price.value != ''&& category.value != '' 
   if ( title.value != '' ) { 
     if ( mode === "create" ){
+      if(selectLang.value ==  'arabic'){
+        create.innerHTML = "إنشاء منتج"
+      }else{
+        create.innerHTML = "Create"
+      }
       if(newPro.count >1){
         for ( var i = 0; i < newPro.count; i++){
           dataPro.push( newPro );
@@ -145,19 +306,33 @@ create.onclick = function (){
       dataPro[ tmp ] = newPro;
       mode = "create";
       count.style.display = "block";
-      create.innerHTML = "Create";
+      if(selectLang.value ==  'arabic'){
+        create.innerHTML = "إنشاء المنتج"
+      }else{
+        create.innerHTML = "create";
+      }
     }
     localStorage.setItem( 'product', JSON.stringify( dataPro ) );
   }else{
     alert( 'Please Input Your Primary Data ( Title , Price , Category )')
   }
   clearData();
-  showData();
+  showData();;
   title.focus()
 };
 
 // showData in table
 function showData (){
+  let update;
+  let delet;
+  if(selectLang.value == 'arabic'){
+    update = 'تحديث'
+    delet = 'حذف'
+    pound ='ج.م'
+  } else if ( selectLang.value == 'english' ){
+    update = 'Update'
+    delet = 'Delete'
+  }
   table = ' '
   for ( let i = 0; i < dataPro.length; i++ ) { 
     table += `
@@ -168,22 +343,20 @@ function showData (){
     <td>${dataPro[i].taxes}</td>
     <td>${dataPro[i].ads}</td>
     <td>${dataPro[i].discount}</td>
-    <td>${dataPro[i].total} £</td>
+    <td>${dataPro[i].total} ${dataPro[i].pound}</td>
     <td>${dataPro[i].category}</td>
     <td>${dataPro[i].date}</td>
     <td>${dataPro[i].time}</td>
-    <td><button class="btn update">UPDATE</button></td>
-    <td><button class="btn delete">DELETE</button></td>
+    <td><button class="btn update">${update}</button></td>
+    <td><button class="btn delete">${delet}</button></td>
   </tr>
     `
   }
   tbody.innerHTML = table
   if(dataPro.length >1){
-    deletAll.innerHTML = `Delete All`
-    deletAll.classList.add('btn')
+    deletAll.style.display = 'block'
   }else{
-    deletAll.innerHTML = ` `;
-    deletAll.classList.remove('btn')
+    deletAll.style.display = 'none'
   }
   deleteItem();
   updateItem();
@@ -219,7 +392,11 @@ function updateItem(){
       total.value = dataPro[ index ].total
       count.style.display="none"
       category.value = dataPro[ index ].category
-      create.innerHTML = "Update"
+      if(selectLang.value ==  'arabic'){
+        create.innerHTML = "تحديث المنتج"
+      }else{
+        create.innerHTML = "update"
+      }
       mode = "update";
       tmp = index
     }
