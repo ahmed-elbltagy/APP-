@@ -29,7 +29,7 @@ let empty = document.querySelector( '#empty' );
 const translations = {
   english: {
     hedTitle: "Product Management",
-    discretion: "Application For Management any Products",
+    discretion: "Application For Products Management ",
     english: "English",
     arabic: "Arabic",
     Create: "Create",
