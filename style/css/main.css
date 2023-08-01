@@ -123,7 +123,7 @@ header .title p{
 }
 header .lang-theme{
   position: absolute;
-  right: 5px;
+  right: -2px;
   top: -30px;
   display: flex;
   align-items: center;
@@ -154,6 +154,7 @@ header .lang-theme img{
 header .lang-theme #light-mode,
 header .lang-theme #dark-mode{
   cursor: pointer;
+  margin-left: 5px;
 }
 header .lang-theme #light-mode{
   display: none;
