@@ -12,7 +12,8 @@ let searchTitle = document.getElementById('search-title');
 let searchCategory = document.getElementById('search-category');
 let deletAll = document.getElementById( 'deleteAll' );
 let tbody = document.getElementById( 'tbody' );
-let mode = "create";
+let createMode = "create";
+let searchMode ="title";
 let tmp;
 let currentTime = new Date();
 let date=currentTime.toLocaleDateString( "en-UK")
@@ -59,7 +60,7 @@ const translations = {
     SearchCa: "بحث بواسطة الصنف",
     deleteAll: "حذف الكل",
     ID: "الرقم",
-    TITLE: "العنوان",
+    TITLE: "الأسم ",
     PRICE: "السعر",
     TAX: "ضرائب",
     ADS: "اعلانات",
@@ -92,7 +93,7 @@ selectLang.addEventListener( 'change', function(){
     localStorage.setItem( 'selectedLang', 'arabic' );
     date = currentTime.toLocaleDateString( "ar-EG" );
     time = currentTime.toLocaleTimeString( "ar-EG", { hour: 'numeric', minute: '2-digit', } );
-    title.setAttribute( "placeholder", "عنوان المنتج" );
+    title.setAttribute( "placeholder", "اسم المنتج" );
     price.setAttribute( "placeholder", "سعر المنتج" );
     taxes.setAttribute( "placeholder", "الضرائب" );
     ads.setAttribute( "placeholder", " الأعلانات" );
@@ -133,7 +134,7 @@ if ( localStorage.getItem( 'selectedLang' ) === 'arabic' ) {
   selectLang.value = 'arabic'
   date = currentTime.toLocaleDateString( "ar-EG" )
   time = currentTime.toLocaleTimeString( "ar-EG", { hour: 'numeric', minute: '2-digit', } )
-  title.setAttribute("placeholder","عنوان المنتج")
+  title.setAttribute("placeholder","اسم المنتج")
   price.setAttribute("placeholder","سعر المنتج")
   taxes.setAttribute("placeholder","الضرائب")
   ads.setAttribute("placeholder"," الأعلانات")
@@ -196,7 +197,7 @@ if (localStorage.getItem("mode")==="dark") {
     sessionStorage.setItem("discount", discount.value )
     sessionStorage.setItem("total", total.innerHTML )
     sessionStorage.setItem("count", count.value)
-    sessionStorage.setItem( "category", category.value )
+    sessionStorage.setItem( "category", category.value );
   }
   if (sessionStorage.key( "title" ) )
   {title.value = sessionStorage.getItem( "title" ); }
@@ -227,7 +228,6 @@ function getTotal () {
       total.style.background="#212121"
     }
 }
-
 
 window.onkeyup =()=>{
   getTotal();
@@ -288,7 +288,7 @@ create.onclick = function (){
     pound:pound
   };
   if ( title.value != '' && price.value != '' && category.value != '' ) { 
-    if ( mode === "create" ){
+    if ( createMode === "create" ){
       if(selectLang.value ==  'arabic'){
         create.innerHTML = "إنشاء منتج"
       }else{
@@ -301,9 +301,9 @@ create.onclick = function (){
         }else{
         dataPro.push( newPro );
       }
-    }else if ( mode === "update" ){
+    }else if ( createMode === "update" ){
       dataPro[ tmp ] = newPro;
-      mode = "create";
+      createMode = "create";
       count.style.display = "block";
       if(selectLang.value ==  'arabic'){
         create.innerHTML = "إنشاء المنتج"
@@ -313,15 +313,19 @@ create.onclick = function (){
     }
     localStorage.setItem( 'product', JSON.stringify( dataPro ) );
   }else{
-    alert( 'Please Input Your Primary Data ( Title , Price , Category )')
+    if(selectLang.value == 'arabic'){
+      alert( 'من فضلك قم بإدخال البيانات التاليه بشكل صحيح (اسم المنتج، السعر، الصنف)')
+    }else{
+      alert( 'Please Input Your Primary Data ( Title, Price, Category )')
+    }
   }
   clearData();
-  showData();;
+  showData(dataPro);
   title.focus()
 };
 
 // showData in table
-function showData (){
+function showData (data){
   let update;
   let delet;
   if(selectLang.value == 'arabic'){
@@ -333,19 +337,19 @@ function showData (){
     delet = 'Delete'
   }
   table = ' '
-  for ( let i = 0; i < dataPro.length; i++ ) { 
+  for ( let i = 0; i < data.length; i++ ) { 
     table += `
     <tr>
     <td>${[i+1]}</td>
-    <td>${dataPro[i].title}</td>
-    <td>${dataPro[i].price}</td>
-    <td>${dataPro[i].taxes}</td>
-    <td>${dataPro[i].ads}</td>
-    <td>${dataPro[i].discount}</td>
-    <td>${dataPro[i].total} ${dataPro[i].pound}</td>
-    <td>${dataPro[i].category}</td>
-    <td>${dataPro[i].date}</td>
-    <td>${dataPro[i].time}</td>
+    <td>${data[i].title}</td>
+    <td>${data[i].price}</td>
+    <td>${data[i].taxes}</td>
+    <td>${data[i].ads}</td>
+    <td>${data[i].discount}</td>
+    <td>${data[i].total} ${data[i].pound}</td>
+    <td>${data[i].category}</td>
+    <td>${data[i].date}</td>
+    <td>${data[i].time}</td>
     <td><button class="btn update">${update}</button></td>
     <td><button class="btn delete">${delet}</button></td>
   </tr>
@@ -360,7 +364,7 @@ function showData (){
   deleteItem();
   updateItem();
 }
-showData();
+showData(dataPro);
 
 // deleteItem
 function deleteItem() {
@@ -370,7 +374,7 @@ function deleteItem() {
       let index = del.parentNode.parentNode.rowIndex - 1;
       dataPro.splice(index , 1);
       localStorage.product= JSON.stringify(dataPro);
-      showData();
+      showData(dataPro);
     }
   });
 }
@@ -396,7 +400,7 @@ function updateItem(){
       }else{
         create.innerHTML = "update"
       }
-      mode = "update";
+      createMode = "update";
       tmp = index
     }
   } );
@@ -404,28 +408,47 @@ function updateItem(){
 updateItem()
 
 // deleteAll items
-  deletAll.onclick=()=>{
-    let confirmMsg = confirm( "Are You Sure Delete All Items ?" );
-    if ( confirmMsg == true ) { 
-      localStorage.clear()
-      dataPro.splice( 0 )
-      showData();
-    }
+deletAll.onclick=()=>{
+  let confirmMsg = "";
+  if (selectLang.value == 'arabic') {
+    confirmMsg = "هل أنت متأكد من حذف جميع المنتجات؟";
+  } else {
+    confirmMsg = "Are you sure to delete all items?";
   }
+  let confirmed = confirm(confirmMsg);
+  if (confirmed) { 
+    localStorage.removeItem('product');
+    dataPro.splice(0);
+    showData(dataPro);
+  }
+}
 
 //search in items
+searchTitle.onclick = () => { 
+  searchMode = "title";
+};
+searchCategory.onclick = () => { 
+  searchMode = "category";
+};
 function searchItems (){
   let value = search.value;
-  for ( var i = 0; i < dataPro.length; i++ ){
-    if ( dataPro[ i ].title.includes( value ) ){
-      console.log("true")
-    }else{
-      console.log("false")
-    }
+  if(searchMode == "title"){
+    let filteredData = dataPro.filter(function(item) {
+      return item.title.includes( value );
+    })
+    showData(filteredData);
+  }else{
+    let filteredData = dataPro.filter(function(item) {
+      return item.category.includes( value );
+    })
+    showData(filteredData);
   }
-}
+};
 search.onkeyup = function(){
   searchItems()
-}
-
-
+};
+// clear data in search box
+search.onmousedown=(function(){
+  showData( dataPro )
+  search.value = ""
+})
