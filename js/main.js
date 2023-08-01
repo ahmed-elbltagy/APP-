@@ -287,8 +287,7 @@ create.onclick = function (){
     time: time,
     pound:pound
   };
-  // && price.value != ''&& category.value != '' 
-  if ( title.value != '' ) { 
+  if ( title.value != '' && price.value != '' && category.value != '' ) { 
     if ( mode === "create" ){
       if(selectLang.value ==  'arabic'){
         create.innerHTML = "إنشاء منتج"
