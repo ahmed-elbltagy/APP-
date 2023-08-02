@@ -63,7 +63,7 @@ const translations = {
     TITLE: "الأسم ",
     PRICE: "السعر",
     TAX: "ضرائب",
-    ADS: "اعلانات",
+    ADS: "إعلانات",
     DISC: "خصم",
     TOTAL: "المجموع",
     CATEGORY: "الصنف",
@@ -123,7 +123,7 @@ selectLang.addEventListener( 'change', function(){
     search.setAttribute( "placeholder", "Search" );
     total.setAttribute( 'data-before', 'Total : ' );
   }
-   showData(dataPro)
+  showData(dataPro)
 } )
 // Save The selectedLang in localStorage
 if ( localStorage.getItem( 'selectedLang' ) === 'arabic' ) { 
@@ -452,3 +452,5 @@ search.onmousedown=(function(){
   showData( dataPro )
   search.value = ""
 })
+
+console.log(dataPro)

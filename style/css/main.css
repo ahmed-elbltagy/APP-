@@ -120,6 +120,7 @@ header .title p{
   font-size: 20px;
   font-weight: 400;
   color:var(--tex-color);
+  line-height: 1.5;
 }
 header .lang-theme{
   position: absolute;
@@ -139,7 +140,7 @@ header .lang-theme select{
   background-color: transparent;
   color:var(--tex-color);
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -172,13 +173,14 @@ input{
   margin-bottom: 22px;
   display: block;
   border: 1px solid var(--border-color);
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 400;
   color: var(--input-tex);
 }
 input::placeholder{
   color: var(--red-color);
   font-weight: 300;
+  font-size: 18px;
 }
 
 .btn{
@@ -194,7 +196,7 @@ input::placeholder{
   margin-bottom: 22px;
   background-color: var(--btn-color);
   color: var(--tex-color);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   user-select: none;
   text-align: center;
@@ -221,7 +223,7 @@ input::placeholder{
   border-radius: 4px;
   color:var(--tex-color);
   overflow: hidden ;
-  font-weight: 500;
+  font-weight: 400;
   height: 39px;
   color: #e8e8e8;
 }
@@ -265,23 +267,20 @@ table {
   color: var(--tex-color);
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: 20px;
+  font-weight: 400;
 }
 th{
-  font-size: 22px;
-  font-weight: 400;
+  font-weight: 500;
   padding:10px 5px;
   border: 3px solid var(--btn-color);
   user-select: none;
   text-align: center;
 }
-td{
+tbody tr td {
   border: 3px solid var(--btn-color);
   padding: 5px;
-  width: auto;
-}
-tbody tr td {
   width: 140px !important;
-  font-size: 23px;
 }
 .update,
 .delete{
@@ -320,16 +319,8 @@ tbody tr td {
   header .title h1{
     text-align: center;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom:20px;
-  }
-  header .title p{
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom:50px;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.5;
   }
   header .lang-theme #light-mode ,
   header .lang-theme #dark-mode {
@@ -367,4 +358,14 @@ tbody tr td {
   .container{
     margin: 14px;
   }
+  header .title h1{
+    font-size: 19px;
+  }
+  header .title p,
+  input,
+  table,
+  .price small,
+  .btn{
+    font-size: 17px ;
+}
 }
