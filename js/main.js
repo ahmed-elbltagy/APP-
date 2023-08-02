@@ -96,7 +96,7 @@ selectLang.addEventListener( 'change', function(){
     title.setAttribute( "placeholder", "اسم المنتج" );
     price.setAttribute( "placeholder", "سعر المنتج" );
     taxes.setAttribute( "placeholder", "الضرائب" );
-    ads.setAttribute( "placeholder", " الأعلانات" );
+    ads.setAttribute( "placeholder", " الاعلانات" );
     discount.setAttribute( "placeholder", "الخصم" );
     count.setAttribute( "placeholder", " الكميه" );
     category.setAttribute( "placeholder", " الصنف" );
@@ -137,7 +137,7 @@ if ( localStorage.getItem( 'selectedLang' ) === 'arabic' ) {
   title.setAttribute("placeholder","اسم المنتج")
   price.setAttribute("placeholder","سعر المنتج")
   taxes.setAttribute("placeholder","الضرائب")
-  ads.setAttribute("placeholder"," الأعلانات")
+  ads.setAttribute("placeholder"," الاعلانات")
   discount.setAttribute("placeholder","الخصم")
   count.setAttribute("placeholder"," الكميه")
   category.setAttribute("placeholder"," الصنف")
