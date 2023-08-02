@@ -123,7 +123,7 @@ selectLang.addEventListener( 'change', function(){
     search.setAttribute( "placeholder", "Search" );
     total.setAttribute( 'data-before', 'Total : ' );
   }
-  showData()
+   showData(dataPro)
 } )
 // Save The selectedLang in localStorage
 if ( localStorage.getItem( 'selectedLang' ) === 'arabic' ) { 
