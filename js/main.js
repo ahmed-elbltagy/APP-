@@ -113,14 +113,14 @@ selectLang.addEventListener( 'change', function(){
     localStorage.setItem( 'selectedLang', 'english' );
     date = currentTime.toLocaleDateString( "en-UK" );
     time = currentTime.toLocaleTimeString( "en-US", { hour: 'numeric', minute: '2-digit', } );
-    title.setAttribute( "placeholder", "title" );
-    price.setAttribute( "placeholder", "price" );
-    taxes.setAttribute( "placeholder", "taxes" );
-    ads.setAttribute( "placeholder", "ads" );
-    discount.setAttribute( "placeholder", "discount" );
-    count.setAttribute( "placeholder", "count" );
-    category.setAttribute( "placeholder", "category" );
-    search.setAttribute( "placeholder", "search" );
+    title.setAttribute( "placeholder", "Title" );
+    price.setAttribute( "placeholder", "Price" );
+    taxes.setAttribute( "placeholder", "Taxes" );
+    ads.setAttribute( "placeholder", "Ads" );
+    discount.setAttribute( "placeholder", "Discount" );
+    count.setAttribute( "placeholder", "Count" );
+    category.setAttribute( "placeholder", "Category" );
+    search.setAttribute( "placeholder", "Search" );
     total.setAttribute( 'data-before', 'Total : ' );
   }
   showData()
